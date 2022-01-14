@@ -1,24 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>My Workouts</title>
 </head>
 <body>
-<table>
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="workout: ${allWorkouts}">
-        <td th:text="${workout.date}">2022-01-01</td>
-        <td th:text="${workout.distance}">5</td>
-        <td th:text="${workout.time}">25M00S</td>
-    </tr>
-    </tbody>
-</table>
+<h1 th:text="${name}">Your Name Here</h1>
 </body>
 </html>

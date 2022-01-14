@@ -1,12 +1,14 @@
 package GabrielCharland.runningLog.Workout;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping(path="strava")
 public class WorkoutController {
 
@@ -16,6 +18,14 @@ public class WorkoutController {
         this.workoutService = workoutService;
     }
 
+    @GetMapping
+    public String getWorkouts(Model model) {
+        List<Workout> workouts = workoutService.getWorkouts();
+        model.addAttribute("allWorkouts", workouts);
+        return "viewWorkouts";
+    }
+
+    /*
     @GetMapping
     public List<Workout> getWorkouts() {
         return workoutService.getWorkouts();
@@ -39,5 +49,5 @@ public class WorkoutController {
         workoutService.updateWorkout(workoutId, date, distance, time);
 
     }
-
+    */
 }
