@@ -24,8 +24,8 @@ public class workoutConfig {
 
             Workout beckett = new Workout(
                     LocalDate.of(2021, Month.DECEMBER, 04),
-                    6.8,
-                    Duration.parse("PT41M07S")
+                    13.7,
+                    Duration.parse("PT1H41M07S")
             );
 
             repository.saveAll(List.of(quartier, beckett));

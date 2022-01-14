@@ -50,8 +50,26 @@ public class Workout {
         return time;
     }
 
+    public String getFormattedTime() {
+        long timeSeconds = time.toSeconds();
+        if (timeSeconds / 3600 >= 1) {
+            return String.format("%dh %dm", timeSeconds / 3600, (timeSeconds % 3600) / 60);
+        } else {
+            return String.format("%dm %dsec", (timeSeconds % 3600) / 60, (timeSeconds % 60));
+        }
+    }
+
     public Duration getPace() {
         return this.time.dividedBy(((long) (100 * this.distance))).multipliedBy(100);
+    }
+
+    public String getFormattedPace() {
+        long paceSeconds = getPace().toSeconds();
+        if (paceSeconds / 3600 >= 1) {
+            return String.format("%dh %dm", paceSeconds / 3600, (paceSeconds % 3600) / 60);
+        } else {
+            return String.format("%dm %dsec", (paceSeconds % 3600) / 60, (paceSeconds % 60));
+        }
     }
 
     public void setId(Long id) {
