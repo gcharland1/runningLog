@@ -9,5 +9,4 @@ public class RunningLogApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RunningLogApplication.class, args);
 	}
-
 }

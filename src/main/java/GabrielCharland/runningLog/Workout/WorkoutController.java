@@ -1,5 +1,6 @@
 package GabrielCharland.runningLog.Workout;
 
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
@@ -7,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="strava")
+@RequestMapping(path="api/workout")
 public class WorkoutController {
 
     private final WorkoutService workoutService;
@@ -16,8 +17,10 @@ public class WorkoutController {
         this.workoutService = workoutService;
     }
 
+    @CrossOrigin(origins = "http://0.0.0.0:4200")
     @GetMapping
     public List<Workout> getWorkouts() {
+        System.out.println("Request recieved.");
         return workoutService.getWorkouts();
     }
 
