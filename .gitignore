@@ -8,7 +8,8 @@ api/target/
 
 
 ### FRONTEND ###
-!frontend/angular-app/src/*
+frontend/angular-app/*
+!frontend/angular-app/src/
 
 
 ### STS ###
@@ -21,7 +22,7 @@ api/target/
 .sts4-cache
 
 ### Vim ###
-.swp
+*.swp
 
 ### IntelliJ IDEA ###
 .idea
