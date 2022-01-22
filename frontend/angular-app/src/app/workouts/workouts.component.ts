@@ -27,9 +27,8 @@ export class WorkoutsComponent implements OnInit {
 
     let formattedTime = this.formatTime(time);
     const newWorkout: Workout = { date: date, distance: parseFloat(distance), time: formattedTime };
-
     this.workoutService.addWorkout(newWorkout).subscribe(
-      workout => { this.workouts.push(workout); }
+      (workout) => this.workouts.push(workout)
     );
   }
 

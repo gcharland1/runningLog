@@ -10,6 +10,7 @@ import java.time.LocalTime;
 import java.time.Month;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class WorkoutService {
@@ -23,6 +24,13 @@ public class WorkoutService {
 
     public List<Workout> getWorkouts() {
         return this.workoutRepository.findAll();
+    }
+
+    public Workout findLastAddedWorkout() {
+        Workout lastAddedWorkout = workoutRepository.findLastAddedWorkout().orElseThrow(
+                () -> new IllegalStateException("Workout database is empty!")
+        );
+        return lastAddedWorkout;
     }
 
     public void addNewWorkout(Workout workout) {

@@ -17,23 +17,28 @@ public class WorkoutController {
         this.workoutService = workoutService;
     }
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "http://0.0.0.0:4200/")
     @GetMapping
     public List<Workout> getWorkouts() {
         System.out.println("Request recieved.");
         return workoutService.getWorkouts();
     }
 
+    @CrossOrigin(origins = "http://0.0.0.0:4200/")
     @PostMapping
-    public void addNewWorkout(@RequestBody Workout workout) {
+    public Workout addNewWorkout(@RequestBody Workout workout) {
         workoutService.addNewWorkout(workout);
+        List<Workout> workouts = this.workoutService.getWorkouts();
+        return workouts.get(workouts.size() - 1);
     }
 
+    @CrossOrigin(origins = "http://0.0.0.0:4200/")
     @DeleteMapping(path="{workoutId}")
     public void deleteWorkout(@PathVariable("workoutId") long workoutId) {
         workoutService.deleteWorkout(workoutId);
     }
 
+    @CrossOrigin(origins = "http://0.0.0.0:4200/")
     @PutMapping(path="{workoutId}")
     public void updateWorkout(@PathVariable("workoutId") long workoutId,
                               @RequestParam(required = false) LocalDate date,
