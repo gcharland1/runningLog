@@ -20,7 +20,6 @@ public class WorkoutController {
     @CrossOrigin(origins = "http://0.0.0.0:4200/")
     @GetMapping
     public List<Workout> getWorkouts() {
-        System.out.println("Request recieved.");
         return workoutService.getWorkouts();
     }
 
