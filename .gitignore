@@ -1,8 +1,15 @@
 HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+
+### API ###
+api/target/
+!api/.mvn/wrapper/maven-wrapper.jar
+!api/src/main/**/target/
+!api/src/test/**/target/
+
+
+### FRONTEND ###
+!frontend/angular-app/src/*
+
 
 ### STS ###
 .apt_generated
@@ -12,6 +19,9 @@ target/
 .settings
 .springBeans
 .sts4-cache
+
+### Vim ###
+.swp
 
 ### IntelliJ IDEA ###
 .idea
