@@ -33,6 +33,13 @@ export class WorkoutsComponent implements OnInit {
     );
   }
 
+  deleteWorkout(workout: Workout): void {
+    if (workout.id != null) {
+      this.workoutService.deleteWorkout(workout.id).subscribe();
+      this.workouts =  this.workouts.filter(w => w != workout);
+    }
+  }
+
   formatWorkout(workout: Workout): Workout {
     if ( workout.time.startsWith('PT') ) {
       console.log(`String ${workout.time} starts with PT`);

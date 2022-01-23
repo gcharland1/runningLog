@@ -41,7 +41,9 @@
           </button></td>
       </tr>
       <tr *ngFor="let workout of workouts">
-        <td><button class="delete" title="Supprimer">Supprimer</button></td>
+        <td><button class="delete"
+                    title="Supprimer"
+                    (click)="deleteWorkout(workout)">Supprimer</button></td>
         <td>{{ workout.date }}</td>
         <td>{{ workout.distance }} km</td>
         <td>{{ workout.time }}</td>

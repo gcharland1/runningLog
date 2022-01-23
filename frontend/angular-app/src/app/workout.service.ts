@@ -43,6 +43,14 @@ export class WorkoutService {
     );
   }
 
+  deleteWorkout(workoutId: number): Observable<Workout> {
+    const url = `${this.workoutsUrl}/${workoutId}`;
+    return this.http.delete<Workout>(url, this.httpOptions).pipe(
+      tap(_ => { this.log(`Deleted workout with id=${workoutId}`) }),
+      catchError(this.handleError<Workout>('deleteWorkout'))
+    );
+  }
+
   log(message: string): void {
     const messageString = "Workout Service: " + message;
     this.messageService.addMessage(messageString)
