@@ -37,9 +37,8 @@ export class WorkoutService {
   }
 
   addWorkout(workout: Workout): Observable<Workout> {
-    this.log("Add Workout: " + JSON.stringify(workout));
     return this.http.post<Workout>(this.workoutsUrl, workout, this.httpOptions).pipe(
-      tap((newWorkout: Workout) => { this.log("Returned: " + JSON.stringify(newWorkout))}),
+      tap((newWorkout: Workout) => { this.log(`Added workout with id=${newWorkout.id}`)}),
       catchError(this.handleError<Workout>('addWorkout'))
     );
   }
