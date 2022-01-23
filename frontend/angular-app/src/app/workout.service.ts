@@ -42,13 +42,6 @@ export class WorkoutService {
       tap((newWorkout: Workout) => { this.log("Returned: " + JSON.stringify(newWorkout))}),
       catchError(this.handleError<Workout>('addWorkout'))
     );
-
-    /*
-    return this.http.post<Workout>(this.workoutsUrl, workout, this.httpOptions).pipe(
-      tap((newWorkout: Workout) => this.log(`Added hero w/ id ${newWorkout.id}`)),
-      catchError(this.handleError<Workout>('addWorkout'))
-    );
-    */
   }
 
   log(message: string): void {
